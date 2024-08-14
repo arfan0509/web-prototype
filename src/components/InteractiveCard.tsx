@@ -63,7 +63,7 @@ const InteractiveCard: React.FC<InteractiveCardProps> = ({
           style={{
             backgroundImage: `url(${image})`,
             ...cardBgTransform,
-            opacity: isHovering ? 0.8 : 0.5,
+            opacity: isHovering ? 0.6 : 0.9,
           }}
         />
         <div className="card-info absolute bottom-0 p-4 text-white transition-all duration-500">

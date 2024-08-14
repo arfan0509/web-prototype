@@ -9,32 +9,32 @@ interface DecryptedData {
   warehouse: string;
 }
 
-const ApiForm: React.FC = () => {
+const Home: React.FC = () => {
   const [decryptedMessage, setDecryptedMessage] = useState<DecryptedData[]>([]);
   const [totalRecords, setTotalRecords] = useState<number | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
       const credentials = {
-        url: "http://sereg.alcorsys.com:8989/JDataClassQuery",
-        apikey: "06EAAA9D10BE3D4386D10144E267B681",
-        password: "A9CCF340D9A490104AC5159B8E1CBXXX",
-        uniqueid: "JFKlnUZyyu0MzRqj",
+        url: import.meta.env.VITE_API_URL,
+        apikey: import.meta.env.VITE_API_KEY,
+        password: import.meta.env.VITE_PASSWORD,
+        uniqueid: import.meta.env.VITE_UNIQUE_ID,
         timestamp: new Date().toISOString(),
       };
 
       const message = {
-        datacore: "core_002",
-        dataclass: "wareHouse",
-        recordsperpage: "0",
-        currentpageno: "0",
-        condition: "whtype='SL'",
-        order: "warehouse",
-        recordcount: "yes",
-        fields: "whcode, warehouse",
-        userid: "ganiadi@thepyxis.net",
-        groupid: "XCYTUA",
-        businessid: "PJLBBS",
+        datacore: import.meta.env.VITE_DATACORE,
+        dataclass: import.meta.env.VITE_DATACLASS,
+        recordsperpage: import.meta.env.VITE_RECORDSPERPAGE,
+        currentpageno: import.meta.env.VITE_CURRENTPAGENO,
+        condition: import.meta.env.VITE_CONDITION,
+        order: import.meta.env.VITE_ORDER,
+        recordcount: import.meta.env.VITE_RECORDCOUNT,
+        fields: import.meta.env.VITE_FIELDS,
+        userid: import.meta.env.VITE_USERID,
+        groupid: import.meta.env.VITE_GROUPID,
+        businessid: import.meta.env.VITE_BUSINESSID,
       };
 
       const privateMsgStr = JSON.stringify(message);
@@ -135,4 +135,4 @@ const ApiForm: React.FC = () => {
   );
 };
 
-export default ApiForm;
+export default Home;

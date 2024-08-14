@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEnvelope,
+  faLock,
+  faEye,
+  faEyeSlash,
+} from "@fortawesome/free-solid-svg-icons";
 
 const animationSettings = {
   transition: { duration: 1.5 },
@@ -15,28 +20,22 @@ const Login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
-  const navigate = useNavigate(); // Hook untuk navigasi
+  const [showPassword, setShowPassword] = useState(false); // State untuk kontrol password visibility
+  const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Validasi sederhana
     if (!email || !password) {
       setError("Email and password are required.");
       return;
     }
 
-    // Implementasi login logic di sini
     console.log("Email:", email);
     console.log("Password:", password);
 
-    // Clear error on successful submit
     setError(null);
-
-    // Reset form fields
     setEmail("");
     setPassword("");
-
-    // Navigasi ke halaman beranda setelah login
     navigate("/");
   };
 
@@ -87,13 +86,20 @@ const Login: React.FC = () => {
                   <FontAwesomeIcon icon={faLock} />
                 </span>
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"} // Tipe input bergantung pada state
                   id="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
-                  className="block w-full pl-10 pr-3 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring-0 focus:border-gray-500 sm:text-sm bg-transparent"
+                  className="block w-full pl-10 pr-10 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring-0 focus:border-gray-500 sm:text-sm bg-transparent"
                 />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)} // Toggle visibility
+                  className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500"
+                >
+                  <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+                </button>
               </div>
             </div>
 
@@ -107,7 +113,10 @@ const Login: React.FC = () => {
             <div className="mt-4 text-center">
               <p className="text-sm text-gray-600">
                 Don't have an account?{" "}
-                <a href="/register" className="text-indigo-600 hover:underline">
+                <a
+                  href="/register"
+                  className="text-gray-900 font-medium hover:underline"
+                >
                   Register
                 </a>
               </p>

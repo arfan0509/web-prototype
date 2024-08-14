@@ -6,6 +6,8 @@ import {
   faEnvelope,
   faLock,
   faUserAlt,
+  faEye,
+  faEyeSlash,
 } from "@fortawesome/free-solid-svg-icons";
 
 const animationSettings = {
@@ -21,11 +23,12 @@ const Register: React.FC = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Validasi sederhana
     if (!name || !email || !password || !confirmPassword) {
       setError("All fields are required.");
       return;
@@ -36,20 +39,15 @@ const Register: React.FC = () => {
       return;
     }
 
-    // Implementasi register logic di sini
+    console.log("Name:", name);
     console.log("Email:", email);
     console.log("Password:", password);
 
-    // Clear error on successful submit
     setError(null);
-
-    // Reset form fields
     setName("");
     setEmail("");
     setPassword("");
     setConfirmPassword("");
-
-    // Navigasi ke halaman login setelah pendaftaran
     navigate("/login");
   };
 
@@ -120,13 +118,20 @@ const Register: React.FC = () => {
                   <FontAwesomeIcon icon={faLock} />
                 </span>
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   id="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
-                  className="block w-full pl-10 pr-3 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring-0 focus:border-gray-500 sm:text-sm bg-transparent"
+                  className="block w-full pl-10 pr-10 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring-0 focus:border-gray-500 sm:text-sm bg-transparent"
                 />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500"
+                >
+                  <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+                </button>
               </div>
             </div>
             <div className="mb-6">
@@ -141,25 +146,39 @@ const Register: React.FC = () => {
                   <FontAwesomeIcon icon={faLock} />
                 </span>
                 <input
-                  type="password"
+                  type={showConfirmPassword ? "text" : "password"}
                   id="confirm-password"
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   required
-                  className="block w-full pl-10 pr-3 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring-0 focus:border-gray-500 sm:text-sm bg-transparent"
+                  className="block w-full pl-10 pr-10 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring-0 focus:border-gray-500 sm:text-sm bg-transparent"
                 />
+                <button
+                  type="button"
+                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                  className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500"
+                >
+                  <FontAwesomeIcon
+                    icon={showConfirmPassword ? faEyeSlash : faEye}
+                  />
+                </button>
               </div>
             </div>
+
             <button
               type="submit"
-              className="w-full px-4 py-2 bg-gray-900 text-white font-semibold rounded-lg shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              className="w-full px-4 py-2 bg-gray-900 text-white font-semibold rounded-lg shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
             >
               Register
             </button>
+
             <div className="mt-4 text-center">
               <p className="text-sm text-gray-600">
                 Already have an account?{" "}
-                <a href="/login" className="text-indigo-600 hover:underline">
+                <a
+                  href="/login"
+                  className="text-gray-900 font-medium hover:underline"
+                >
                   Login
                 </a>
               </p>

@@ -72,8 +72,8 @@ const UserProfile: React.FC = () => {
                   <p className="text-base md:text-lg">January 1, 2024</p>
                 </div>
               </div>
-              <div className="mt-6 flex justify-end">
-                <button className="px-4 py-2 bg-indigo-600 text-white font-semibold rounded-lg shadow-sm hover:bg-indigo-500 focus:outline-none">
+              <div className="mt-6 flex justify-center">
+                <button className="px-4 py-2 border border-gray-900 text-gray-900 font-semibold rounded-lg shadow-sm hover:bg-gray-900 hover:text-white focus:outline-none transition duration-300 ease-in-out">
                   <FontAwesomeIcon icon={faEdit} className="mr-2" />
                   Edit
                 </button>
