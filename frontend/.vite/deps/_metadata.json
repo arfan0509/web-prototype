@@ -1,0 +1,79 @@
+{
+  "hash": "04c8a1f9",
+  "configHash": "d567ff18",
+  "lockfileHash": "e3b0c442",
+  "browserHash": "793d3439",
+  "optimized": {
+    "@fortawesome/free-solid-svg-icons": {
+      "src": "../../node_modules/@fortawesome/free-solid-svg-icons/index.mjs",
+      "file": "@fortawesome_free-solid-svg-icons.js",
+      "fileHash": "eb8ea721",
+      "needsInterop": false
+    },
+    "@fortawesome/react-fontawesome": {
+      "src": "../../node_modules/@fortawesome/react-fontawesome/index.es.js",
+      "file": "@fortawesome_react-fontawesome.js",
+      "fileHash": "ea1b686c",
+      "needsInterop": false
+    },
+    "@lottiefiles/dotlottie-react": {
+      "src": "../../node_modules/@lottiefiles/dotlottie-react/dist/index.js",
+      "file": "@lottiefiles_dotlottie-react.js",
+      "fileHash": "65c807cd",
+      "needsInterop": false
+    },
+    "axios": {
+      "src": "../../node_modules/axios/index.js",
+      "file": "axios.js",
+      "fileHash": "7da184a3",
+      "needsInterop": false
+    },
+    "crypto-js": {
+      "src": "../../node_modules/crypto-js/index.js",
+      "file": "crypto-js.js",
+      "fileHash": "8b8701d3",
+      "needsInterop": true
+    },
+    "framer-motion": {
+      "src": "../../node_modules/framer-motion/dist/es/index.mjs",
+      "file": "framer-motion.js",
+      "fileHash": "ba1ae1ed",
+      "needsInterop": false
+    },
+    "moment": {
+      "src": "../../node_modules/moment/dist/moment.js",
+      "file": "moment.js",
+      "fileHash": "e3703155",
+      "needsInterop": false
+    },
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "aa691193",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "79fecc14",
+      "needsInterop": true
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.js",
+      "file": "react-router-dom.js",
+      "fileHash": "50c2edcc",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-ZU5SFTFX": {
+      "file": "chunk-ZU5SFTFX.js"
+    },
+    "chunk-QTVD6AVW": {
+      "file": "chunk-QTVD6AVW.js"
+    },
+    "chunk-PR4QN5HX": {
+      "file": "chunk-PR4QN5HX.js"
+    }
+  }
+}
